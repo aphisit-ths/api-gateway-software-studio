@@ -10,23 +10,22 @@
 
 ## CAUTIONS
 
-1. develop with reactjs for client side , asp.net (MVC) server side
-2. styling with scss , css , framer-motion(some effect)
+1. ใช้เป็น gateway หรือตัวกลาง ระหว่าง frontend และ backend 
+2. ใว้คอย handle/filer input data ก่อนถึง backend
 
 ## FOR DEVOLOPERS
 
-1. /pages
+1. /schema
 
-   > ไว้สำหรับเก็บ pages ต่างไว้
-   > pages/adminpages สำหรับ admin pages
+   > ใว้สำหรับ define ตัว data model
+   > define resolvers ว่าจะรับ args input ตัวไหนจาก frontend บ้าง
+   > และกำหนดว่าจะ return ออกไปในรูปแบบไหน
 
-2. /components
+2. /resolver
 
-   > สำหรับเก็บ Components
+   > query ไว้สำหรับการ query ข้อมูลต่างๆ 
+   > mutation ไว้สำหรับการกระทำที่มีผลต่อ database หรือ datamodel (CRUD)
 
-3. /index.jsx
-
-   > สำหรับการทำ Routing
 
 ## Members 
 1. VORANIPIT CHAIPINITNORACHART
