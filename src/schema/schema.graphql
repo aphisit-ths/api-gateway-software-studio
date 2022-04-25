@@ -1,0 +1,68 @@
+type Query {
+  # Content gateway
+  contents: [Content]!
+  getContentById(contentId: Int!): Content
+  # User gateway
+  users: [User]
+  getUserById(userId: Int!): User!
+}
+type Mutation {
+  deleteComment(contentId: Int!, commentId: Int!): String!
+  #Content
+  addComment(contentId: Int!, description: String!): String!
+  create_content(
+    title: String!
+    description: String!
+    location: String!
+    imageURL: String!
+    tag: [String]!
+  ): Content!
+
+  # user gateway
+  register_user(userName: String!, password: String!, email: String!): User!
+  login(userName: String!, password: String!): AuthUser!
+  edit_user(
+    userId: Int!
+    userName: String
+    password: String
+    name: String
+    lastName: String
+    email: String
+  ): User!
+}
+
+scalar Date
+
+type User {
+  userId: Int
+  userName: String
+  password: String
+  name: String
+  lastName: String
+  email: String
+  status: String
+}
+
+type Content {
+  contentId: Int
+  title: String!
+  description: String!
+  location: String!
+  imageURL: String!
+  tag: [String]!
+  commentList: [Comment]!
+  contentStatus: String!
+}
+type Comment {
+  commentId: Int
+  user: User!
+  description: String!
+  date: String!
+  commentStatus: String!
+}
+
+type AuthUser {
+  user: User!
+  isAdmin: Boolean!
+  token: String!
+}
